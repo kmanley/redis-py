@@ -5,7 +5,7 @@ from redis.exceptions import ConnectionError
 
 class PubSubTestCase(unittest.TestCase):
     def setUp(self):
-        self.connection_pool = redis.ConnectionPool()
+        self.connection_pool = redis.ConnectionPool(host='192.168.56.101', port=6379)
         self.client = redis.Redis(connection_pool=self.connection_pool)
         self.pubsub = self.client.pubsub()
 
@@ -54,7 +54,7 @@ class PubSubTestCase(unittest.TestCase):
 
 class PubSubRedisDownTestCase(unittest.TestCase):
     def setUp(self):
-        self.connection_pool = redis.ConnectionPool(port=6390)
+        self.connection_pool = redis.ConnectionPool(host='192.168.56.101', port=6379)
         self.client = redis.Redis(connection_pool=self.connection_pool)
         self.pubsub = self.client.pubsub()
 

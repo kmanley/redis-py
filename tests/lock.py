@@ -6,7 +6,7 @@ from redis.client import Lock, LockError
 
 class LockTestCase(unittest.TestCase):
     def setUp(self):
-        self.client = redis.Redis(host='localhost', port=6379, db=9)
+        self.client = redis.Redis(host='192.168.56.101', port=6379, db=9)
         self.client.flushdb()
 
     def tearDown(self):
